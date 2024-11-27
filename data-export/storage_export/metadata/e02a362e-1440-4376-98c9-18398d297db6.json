@@ -1,0 +1,19 @@
+{
+  "name": "users/a12bIGZWcLq1ViCOdlxOrRX6OJlP/profile_pictures/profile_picture.jpg",
+  "bucket": "online-tribes-f7bb9.appspot.com",
+  "metageneration": 1,
+  "generation": 1732525159560,
+  "contentType": "application/octet-stream",
+  "storageClass": "STANDARD",
+  "contentDisposition": "inline",
+  "downloadTokens": [
+    "4326f3b0-4ef6-4943-92cb-3ec0b4dbcbc6"
+  ],
+  "etag": "SBAqynFRRxdprmYGbA1f0LRbEwM",
+  "customMetadata": {},
+  "timeCreated": "2024-11-25T08:59:19.561Z",
+  "updated": "2024-11-25T08:59:19.561Z",
+  "size": 78634,
+  "md5Hash": "nDeekZoYYxd8teGWhnXahg==",
+  "crc32c": "2205180337"
+}

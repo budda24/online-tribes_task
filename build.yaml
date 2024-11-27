@@ -1,0 +1,10 @@
+targets:
+  $default:
+    builders:
+      injectable_generator:
+        options:
+          generate_for:
+            - lib/core/di/injection.dart
+      json_serializable:
+        options:
+          explicit_to_json: true

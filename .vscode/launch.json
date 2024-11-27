@@ -1,0 +1,51 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flutter",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "noDebug": false,
+    },
+    {
+      "name": "Run connected to emulator",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "noDebug": false,
+      "args": [
+        "--dart-define=useEmulator=true"
+      ]
+    },
+    {
+      "name": "Run connected to backend",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "noDebug": false,
+      "args": [
+        "--dart-define=useEmulator=false"
+      ]
+    },
+    {
+      "type": "dart",
+      "name": "Launch Without Debugging",
+      "request": "launch",
+      "noDebug": true,
+      "program": "lib/main.dart" // Specify your main entry file
+    },
+    {
+      "name": "profile mode",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "release mode",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    }
+  ]
+}

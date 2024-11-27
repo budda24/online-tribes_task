@@ -1,0 +1,19 @@
+{
+  "pl": [
+    "contextMenuMembers",
+    "invitations",
+    "rules",
+    "profiles",
+    "categories",
+    "membersHeadline"
+  ],
+
+  "uk": [
+    "contextMenuMembers",
+    "invitations",
+    "rules",
+    "profiles",
+    "categories",
+    "membersHeadline"
+  ]
+}

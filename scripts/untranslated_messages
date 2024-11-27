@@ -1,0 +1,39 @@
+{
+  "pl": [
+    "userProfileActive",
+    "userProfileAgo",
+    "userProfileLoadingError",
+    "userProfileConfirmChange",
+    "userProfileTabAbout",
+    "userProfileTabActivity",
+    "userProfileTabTribes",
+    "userProfileTabPosts",
+    "tribeNotLoadedError",
+    "createTribeRetry",
+    "hobbyLimitExceedInfo",
+    "unauthenticatedUser",
+    "errorBannerTitle",
+    "successBannerTitle",
+    "infoBannerTitle",
+    "errorOnboarding"
+  ],
+
+  "uk": [
+    "userProfileActive",
+    "userProfileAgo",
+    "userProfileLoadingError",
+    "userProfileConfirmChange",
+    "userProfileTabAbout",
+    "userProfileTabActivity",
+    "userProfileTabTribes",
+    "userProfileTabPosts",
+    "tribeNotLoadedError",
+    "createTribeRetry",
+    "hobbyLimitExceedInfo",
+    "unauthenticatedUser",
+    "errorBannerTitle",
+    "successBannerTitle",
+    "infoBannerTitle",
+    "errorOnboarding"
+  ]
+}

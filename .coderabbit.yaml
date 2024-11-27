@@ -1,0 +1,109 @@
+language: "en-US"
+early_access: true
+reviews:
+  profile: "assertive"
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+  path_instructions:
+    - path: "lib/**/*.{dart}"
+      instructions: |
+        **Priority 1 (Critical Only):**
+        - Security vulnerabilities
+        - Data conflicts
+        - Error handling
+        - Logical correctness
+
+    #        **Priority 2 (Important):**
+    #       - Performance optimization
+    #       - Adherence to best practices
+
+    #        **Priority 3 (Good to have):**
+    #        - Maintainability
+    #        - Modularity
+    #        - Code complexity
+    #        - General optimization
+
+    # - path: "assets/**/*"
+    #   instructions: |
+    #     **Focus Areas:**
+    #     - Proper organization of assets
+    #     - Correct referencing in code
+    #     - Optimization of asset sizes for performance
+    #     - Licensing and attribution compliance
+
+    # - path: "test/**/*.{dart}"
+    #   instructions: |
+    #     **Focus Areas:**
+    #     - Comprehensive test coverage
+    #     - Quality and clarity of assertions
+    #     - Testing edge cases and error handling
+    #     - Use of consistent testing frameworks
+    #     - Avoidance of flaky tests
+    #     - Proper setup and teardown procedures
+    #     - Mocking and stubbing where appropriate
+    #     - Performance of test execution
+
+    - path: "android/**/*"
+      instructions: |
+        **Focus Areas:**
+        - Proper configuration of Android-specific settings
+        - Compatibility with various Android versions
+        - Correct integration with Firebase services
+        - Security configurations (e.g., permissions)
+
+    # - path: "ios/**/*"
+    #   instructions: |
+    #     **Focus Areas:**
+    #     - Proper configuration of iOS-specific settings
+    #     - Compatibility with various iOS versions
+    #     - Correct integration with Firebase services
+    #     - Security configurations (e.g., entitlements)
+
+    # - path: "firebase.json"
+    #   instructions: |
+    #     **Focus Areas:**
+    #     - Correct configuration of Firebase emulators
+    #     - Proper setup of Firebase services
+    #     - Alignment with project requirements
+    #     - Security rules and settings
+
+    # - path: ".firebaserc"
+    #   instructions: |
+    #     **Focus Areas:**
+    #     - Correct project aliasing
+    #     - Proper environment configurations
+    #     - Alignment with Firebase project settings
+
+    - path: "firestore.rules"
+      instructions: |
+        **Focus Areas:**
+        - Security rules for Firestore
+        - Proper access controls
+        - Alignment with application requirements
+        - Testing of rules with emulators
+
+    - path: "storage.rules"
+      instructions: |
+        **Focus Areas:**
+        - Security rules for Firebase Storage
+        - Proper access controls
+        - Alignment with application requirements
+        - Testing of rules with emulators
+
+    - path: "functions/**/*.{js,ts}"
+      instructions: |
+        **Focus Areas:**
+        - Correct implementation of Cloud Functions
+        - Proper error handling
+        - Performance optimizations
+        - Security considerations
+        - Testing with emulators
+
+chat:
+  auto_reply: true

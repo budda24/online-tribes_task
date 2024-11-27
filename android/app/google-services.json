@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1091183894501",
+    "project_id": "intevoiews",
+    "storage_bucket": "intevoiews.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091183894501:android:7bfd45ec207a3a6a75590c",
+        "android_client_info": {
+          "package_name": "com.interviews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091183894501-5cii463g10iqm626fch5j5td404d34vj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.interviews",
+            "certificate_hash": "1878fe4a0f8f2c66cb9d7a854d3fd8796d100149"
+          }
+        },
+        {
+          "client_id": "1091183894501-ut7lch0q96spgr1t0pctsr4520mf51av.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIn0f97-RFveHNsrQ25wAbiktC6IBrZ2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091183894501-ut7lch0q96spgr1t0pctsr4520mf51av.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
