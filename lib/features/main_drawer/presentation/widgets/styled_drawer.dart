@@ -113,10 +113,12 @@ class StyledDrawer extends StatelessWidget {
                             ...state.userTribes.map(
                               (tribe) {
                                 return ListTile(
-                                  onTap: () => HomePageRoute(),
+                                  onTap: () {
+                                    Navigator.of(context).pop();
+                                    HomePageRoute(tribeId: tribe.tribeId).go(context);
+                                  },
                                   leading: CircleAvatar(
-                                    backgroundImage:
-                                        NetworkImage(tribe.signUrl!),
+                                    backgroundImage: NetworkImage(tribe.signUrl!),
                                   ),
                                   title: Text(
                                     tribe.name,
@@ -139,12 +141,10 @@ class StyledDrawer extends StatelessWidget {
                       ).go(context),
                       leading: state.profilePictureUrl != null
                           ? CircleAvatar(
-                              backgroundImage:
-                                  NetworkImage(state.profilePictureUrl ?? ''),
+                              backgroundImage: NetworkImage(state.profilePictureUrl ?? ''),
                             )
                           : CircleAvatar(
-                              backgroundImage:
-                                  Assets.shared.logo.logoSquer.image().image,
+                              backgroundImage: Assets.shared.logo.logoSquer.image().image,
                             ),
                       title: Text(
                         fakeTranslation('My profile'),
@@ -172,8 +172,7 @@ class StyledDrawer extends StatelessWidget {
                               child: Text(
                                 '1',
                                 style: context.appTextStyles.bodyText2.copyWith(
-                                  color:
-                                      context.appColors.scaffoldBackgroundColor,
+                                  color: context.appColors.scaffoldBackgroundColor,
                                 ),
                               ),
                             ),

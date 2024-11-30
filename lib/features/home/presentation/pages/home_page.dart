@@ -18,7 +18,9 @@ import 'package:online_tribes/features/user_registration/presentation/widgets/ma
 import 'package:online_tribes/router/app_routes.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, required this.tribeId});
+
+  final String tribeId;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -29,8 +31,16 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void didChangeDependencies() {
-    context.read<HomePageCubit>().loadUserData();
+    context.read<HomePageCubit>().loadUserData(widget.tribeId);
     super.didChangeDependencies();
+  }
+
+  @override
+  void didUpdateWidget(covariant HomePage oldWidget) {
+    if (oldWidget.tribeId != widget.tribeId) {
+      context.read<HomePageCubit>().loadUserData(widget.tribeId);
+    }
+    super.didUpdateWidget(oldWidget);
   }
 
   @override

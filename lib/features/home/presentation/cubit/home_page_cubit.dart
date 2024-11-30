@@ -1,16 +1,21 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 import 'package:online_tribes/core/error/base_api_error.dart';
 import 'package:online_tribes/core/error/mappers/firebase_error_mapper.dart';
 import 'package:online_tribes/core/error/reasons/firebase_error_reason.dart';
 import 'package:online_tribes/core/error/reasons/freezed_error_reason.dart';
 import 'package:online_tribes/features/home/presentation/cubit/home_page_state.dart';
 import 'package:online_tribes/features/shared/repositories/tribe/data/models/tribe_error_reason.dart';
+import 'package:online_tribes/features/shared/repositories/tribe/data/models/tribe_model.dart';
 import 'package:online_tribes/features/shared/repositories/tribe/data/models/tribe_set_up_status.dart';
 import 'package:online_tribes/features/shared/repositories/tribe/data/repositories/tribe_repository.dart';
 import 'package:online_tribes/features/shared/repositories/user/data/repositories/user_repository.dart';
 
+@injectable
 class HomePageCubit extends Cubit<HomePageState> {
   final UserRepository _userRepository;
   final TribeRepository _tribeRepository;
@@ -22,14 +27,18 @@ class HomePageCubit extends Cubit<HomePageState> {
         _tribeRepository = tribeRepository,
         super(const HomePageState.initial());
 
-  Future<void> loadUserData() async {
+  Future<void> loadUserData(String tribeId) async {
     final userId = _userRepository.getUserId;
 
     try {
       emit(const HomePageState.loading());
       final userResult = await _userRepository.getUser(userId);
-      final tribeData =
-          await _tribeRepository.getLastRegisteredTribeByUserId(userId);
+      Either<BaseApiError, TribeModel?> tribeData;
+      if (tribeId != '') {
+        tribeData = await _tribeRepository.getTribe(tribeId);
+      } else {
+        tribeData = await _tribeRepository.getLastRegisteredTribeByUserId(userId);
+      }
 
       userResult.fold<void>(
         (failure) {
@@ -60,6 +69,7 @@ class HomePageCubit extends Cubit<HomePageState> {
                 HomePageState.loaded(
                   tribe: tribe!,
                   user: user,
+                  stateId: UniqueKey().toString(),
                 ),
               );
             },
@@ -106,7 +116,7 @@ class HomePageCubit extends Cubit<HomePageState> {
         );
 
         emit(
-          HomePageState.loaded(tribe: updatedTribe, user: currentState.user),
+          HomePageState.loaded(tribe: updatedTribe, user: currentState.user, stateId: UniqueKey().toString()),
         );
       } on FirebaseException catch (e) {
         emit(

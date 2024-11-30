@@ -14,6 +14,7 @@ abstract class HomePageState with _$HomePageState {
   const factory HomePageState.loaded({
     required TribeModel tribe,
     required UserModel user,
+    required String stateId,
   }) = Loaded;
 
   const factory HomePageState.error(

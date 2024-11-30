@@ -165,14 +165,11 @@ class UserOnboardingRoute extends GoRouteData {
   ) =>
       BlocProvider(
         create: (context) => OnboardingBloc(
-          getUserOnboardingContentUseCase:
-              getIt<GetUserOnboardingContentUseCase>(),
-          getTribeOnboardingContentUseCase:
-              getIt<GetTribeOnboardingContentUseCase>(),
+          getUserOnboardingContentUseCase: getIt<GetUserOnboardingContentUseCase>(),
+          getTribeOnboardingContentUseCase: getIt<GetTribeOnboardingContentUseCase>(),
         ),
         child: OnboardingPage(
-          initialOnboardingEvent:
-              OnboardingEvent.initializeUserOnboarding(context.currantLanguage),
+          initialOnboardingEvent: OnboardingEvent.initializeUserOnboarding(context.currantLanguage),
         ),
       );
 }
@@ -246,10 +243,8 @@ class TribeOnboardingRoute extends GoRouteData {
   ) =>
       BlocProvider(
         create: (context) => OnboardingBloc(
-          getUserOnboardingContentUseCase:
-              getIt<GetUserOnboardingContentUseCase>(),
-          getTribeOnboardingContentUseCase:
-              getIt<GetTribeOnboardingContentUseCase>(),
+          getUserOnboardingContentUseCase: getIt<GetUserOnboardingContentUseCase>(),
+          getTribeOnboardingContentUseCase: getIt<GetTribeOnboardingContentUseCase>(),
         ),
         child: OnboardingPage(
           initialOnboardingEvent: OnboardingEvent.initializeTribeOnboarding(
@@ -325,9 +320,13 @@ class AcceptTermsRoute extends GoRouteData {
 }
 
 @TypedGoRoute<HomePageRoute>(
-  path: '/home_page',
+  path: '/home_page/:tribeId',
 )
 class HomePageRoute extends GoRouteData {
+  final String tribeId;
+
+  HomePageRoute({required this.tribeId});
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return BlocProvider(
@@ -335,7 +334,9 @@ class HomePageRoute extends GoRouteData {
         userRepository: getIt<UserRepository>(),
         tribeRepository: getIt<TribeRepository>(),
       ),
-      child: const HomePage(),
+      child: HomePage(
+        tribeId: tribeId, // Pass the nullable tribeId to the widget
+      ),
     );
   }
 }
@@ -367,8 +368,7 @@ Widget _buildTribeRegistrationCubitProvider({required Widget child}) {
       updateTribeUseCase: getIt<UpdateTribeUseCase>(),
       uploadFileUseCase: getIt<UploadFileUseCase>(),
       firestore: getIt<FirebaseFirestore>(),
-      attachTribeToSearchElementsUseCase:
-          getIt<AttachTribeToSearchElementsUseCase>(),
+      attachTribeToSearchElementsUseCase: getIt<AttachTribeToSearchElementsUseCase>(),
     ),
     child: child,
   );

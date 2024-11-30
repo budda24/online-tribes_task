@@ -44,8 +44,7 @@ class TribePostRegistrationPage extends StatelessWidget {
                 child: ColoredBox(
                   color: context.appColors.backgroundColor,
                   child: StyledMainPadding(
-                    customPadding:
-                        EdgeInsets.symmetric(horizontal: 20.w).copyWith(
+                    customPadding: EdgeInsets.symmetric(horizontal: 20.w).copyWith(
                       top: 66.h,
                       bottom: 64.w,
                     ),
@@ -58,18 +57,15 @@ class TribePostRegistrationPage extends StatelessWidget {
                         30.verticalSpace,
                         Text(
                           'You have made first step to create ',
-                          style: context.appTextStyles.subtitle1
-                              .copyWith(fontWeight: FontWeight.w400),
+                          style: context.appTextStyles.subtitle1.copyWith(fontWeight: FontWeight.w400),
                         ),
                         Text(
                           tribeName,
-                          style: context.appTextStyles.subtitle1
-                              .copyWith(fontWeight: FontWeight.w600),
+                          style: context.appTextStyles.subtitle1.copyWith(fontWeight: FontWeight.w600),
                         ),
                         Expanded(
                           child: Center(
-                            child:
-                                Assets.registration.postTribeRegistration.image(
+                            child: Assets.registration.postTribeRegistration.image(
                               width: 170.w,
                               height: 230.h,
                               fit: BoxFit.cover,
@@ -86,15 +82,12 @@ class TribePostRegistrationPage extends StatelessWidget {
                               child: StyledFilledButton(
                                 leadingIcon: Icons.search,
                                 onPressed: () async {
-                                  await context
-                                      .read<TribeRegistrationCubit>()
-                                      .saveRegistrationFinish();
-                                  await getIt<OnboardingService>()
-                                      .resetOnboarding(
+                                  await context.read<TribeRegistrationCubit>().saveRegistrationFinish();
+                                  await getIt<OnboardingService>().resetOnboarding(
                                     HiveKeys.isTribeOnboardingComplete,
                                   );
                                   if (!context.mounted) return;
-                                  HomePageRoute().go(context);
+                                  HomePageRoute(tribeId: '').go(context);
                                 },
                                 buttonText: 'See tribe',
                               ),

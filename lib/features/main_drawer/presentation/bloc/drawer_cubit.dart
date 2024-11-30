@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:online_tribes/core/error/base_api_error.dart';
+import 'package:online_tribes/core/logging/logger_service.dart';
 import 'package:online_tribes/features/main_drawer/presentation/bloc/drawer_state.dart';
 import 'package:online_tribes/features/shared/repositories/tribe/data/models/tribe_model.dart';
 import 'package:online_tribes/features/shared/repositories/tribe/data/repositories/tribe_repository.dart';
@@ -42,8 +43,10 @@ class StyledDrawerCubit extends Cubit<StyledDrawerState> {
           );
           return [];
         },
-        (userTribes) =>
-            List.from(userTribes.memberTribes)..addAll(userTribes.ownedTribes),
+        (userTribes) {
+          LoggerService().logInfo(message: '$userTribes');
+          return List.from(userTribes.memberTribes)..addAll(userTribes.ownedTribes);
+        },
       );
 
       emit(

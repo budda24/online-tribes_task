@@ -59,8 +59,7 @@ class TribeRegistrationPageState extends State<TribeRegistrationPage>
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _languageController = TextEditingController();
   final TextEditingController _typeController = TextEditingController();
-  final TextEditingController _membershipCriteriaController =
-      TextEditingController();
+  final TextEditingController _membershipCriteriaController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
   final TextEditingController _themeController = TextEditingController();
 
@@ -131,6 +130,8 @@ class TribeRegistrationPageState extends State<TribeRegistrationPage>
     // Ensure _tabController is not null
     if (_tabController == null) return;
 
+    //LoggerService().logInfo(message: 'TabControler - ${_tabController?.index ?? 'NULL'}');
+
     // Map the current index to the enum value
     final currentStep = TribeRegistrationStep.values[_tabController!.index];
 
@@ -187,8 +188,7 @@ class TribeRegistrationPageState extends State<TribeRegistrationPage>
             return;
           }
 
-          final getTribeResult = await tribeRegistrationCubit
-              .getLastRegisteredTribeUseCase(userId);
+          final getTribeResult = await tribeRegistrationCubit.getLastRegisteredTribeUseCase(userId);
 
           getTribeResult.fold(
             tribeRegistrationCubit.showError,
@@ -244,8 +244,7 @@ class TribeRegistrationPageState extends State<TribeRegistrationPage>
                 _nameController.text = tribe.name;
                 _languageController.text = tribe.language ?? '';
                 _typeController.text = tribe.type ?? '';
-                _membershipCriteriaController.text =
-                    tribe.membershipCriteria ?? '';
+                _membershipCriteriaController.text = tribe.membershipCriteria ?? '';
                 _bioController.text = tribe.bio ?? '';
                 _tribeThemes = tribe.themes ?? [];
                 _tribalSignUrl = tribe.signUrl ?? '';
@@ -263,14 +262,12 @@ class TribeRegistrationPageState extends State<TribeRegistrationPage>
                 _nameController.text = state.tribe.name;
                 _languageController.text = state.tribe.language ?? '';
                 _typeController.text = state.tribe.type ?? '';
-                _membershipCriteriaController.text =
-                    state.tribe.membershipCriteria ?? '';
+                _membershipCriteriaController.text = state.tribe.membershipCriteria ?? '';
                 _bioController.text = state.tribe.bio ?? '';
                 _tribeThemes = state.tribe.themes ?? [];
                 _tribalSignUrl = state.tribe.signUrl ?? '';
 
-                if ((state.tribe.lastTribeRegistrationStepIndex ?? 0) + 1 <
-                    _tabs.length) {
+                if ((state.tribe.lastTribeRegistrationStepIndex ?? 0) + 1 < _tabs.length) {
                   _tabController?.animateTo(
                     state.tribe.lastTribeRegistrationStepIndex ?? 0,
                   );
@@ -306,8 +303,7 @@ class TribeRegistrationPageState extends State<TribeRegistrationPage>
                               formKey: _criteriaFormKey,
                               onImagePicked: setImagePicked,
                               onButtonStateChange: _onNameTabButtonStateChange,
-                              tribeCriteriaController:
-                                  _membershipCriteriaController,
+                              tribeCriteriaController: _membershipCriteriaController,
                               typeController: _typeController,
                               scrollController: _scrollController,
                               initImageUrl: _tribalSignUrl,
@@ -332,8 +328,7 @@ class TribeRegistrationPageState extends State<TribeRegistrationPage>
                               },
                               removeTheme: (theme) {
                                 setState(() {
-                                  _tribeThemes
-                                      .removeWhere((value) => value == theme);
+                                  _tribeThemes.removeWhere((value) => value == theme);
                                 });
                               },
                               name: _nameController.text,
