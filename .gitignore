@@ -57,8 +57,7 @@ intl_translation.arb
 # Json_serializable generated files
 *.g.dart
 
-#injectable config
-*config.dart
+
 
 #temporary files 
 **/tmp/
